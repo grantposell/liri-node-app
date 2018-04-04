@@ -24,30 +24,39 @@ for (var i = 3; i < argument.length; i++) {
 
 switch (value) {
     case 'my-tweets':
-        var params = { screen_name: 'naughtxchargers', count: 20 };
+        var params = { screen_name: 'naughtxchargers', count: 3 };
         client.get('statuses/user_timeline', params, function (error, tweets, response) {
             if (!error) {
                 console.log('There has been an error loading tweets')
+                for (var i = 0; i < tweets.length; i++) {
+                    console.log("@" + tweets[i].user.screen_name + '\n' + tweets[i].text + '\n' + "Retweets: " + tweets[i].retweet_count + ' ' + "Favorites: " + tweets[i].favorite_count + '\n' + tweets[i].created_at + '\n=====================================');
+                }
             }
         });
         break;
-    case 'spotify-this-song':
-        if (songName === "") {
-            songName = "The Sign";
-        }
-        // spotify.search({ type: 'track', query: songName, limit: 5 }, function (err, data) {
-        //     if (err) {
-        //         return console.log('Error occurred: ' + err);
-        //     }
-            var title = process.argv[3];
+    // case 'spotify-this-song':
+    //     if (songName === "") {
+    //         songName = "The Sign";
+    //     }
+    //     // spotify.search({ type: 'track', query: songName, limit: 5 }, function (err, data) {
+    //     //     if (err) {
+    //     //         return console.log('Error occurred: ' + err);
+    //     //     }
+    //     var title = process.argv[3];
 
-            break;
-    case 'movie-this':
+    //     break;
+    // case 'movie-this':
 
-        break;
-    case "do-what-it-says":
-        break;
+    //     break;
+    // case "do-what-it-says":
+    //     fs.readFile("./random.txt", "utf8", function (err, data) {
+    //         if (err) {
+    //             return console.log(err);
+    //         }
+    //         var output = data.split(",");
+    //     });
+    //     break;
     default:
-        console.log("Not a valid operation. Choose: \n my-tweets\n spotify-this-song\n movie-this\n do-what-it-says");
+        console.log("Not a valid operation. Choose:my-tweets, spotify-this-song,  movie-this, do-what-it-says");
         break;
 }
