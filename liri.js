@@ -101,8 +101,8 @@ switch (value) {
                 if (err) {
                     return console.log('Error occurred: ' + err);
                 }
-                trackItems = data.tracks.items[0];
-                console.log("Song: " + trackItems.name + '\n' + "Artist: " + trackItems.artists[0].name + '\n' + "Spotify Link: " + trackItems.album.external_urls.spotify + '\n' + "Album Name: " + trackItems.album.name);
+                trackAssets = data.tracks.items[0];
+                console.log("Song: " + trackAssets.name + '\n' + "Artist: " + trackAssets.artists[0].name + '\n' + "Spotify Link: " + trackAssets.album.external_urls.spotify + '\n' + "Album Name: " + trackAssets.album.name);
             });
         });
         break;
